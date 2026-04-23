@@ -1,0 +1,64 @@
+package logica;
+
+import java.time.LocalDateTime
+import java.util.ArrayList
+import java.util.List
+
+public class Publicacion {
+	private static int contador = 1;
+	
+	private int codigo;
+	private String titulo;
+	private String texto;
+	private String autor;
+	private LocalDateTime fechaPublicacion;
+	private List<Comentario> comentarios;
+	
+	public Publicacion( String titulo, String texto, String autor) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.texto = texto;
+		this.autor = autor;
+		this.fechaPublicacion = fechaPublicacion;
+		this.comentarios = new ArrayList<>();
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public LocalDateTime getFechaPublicacion() {
+		return fechaPublicacion;
+	}
+	
+	public void agregarComentarios(String email, String ip, String texto) {
+		comentarios.add(new Comentario(email, ip, texto));
+	}
+	
+	public void borrarComentario(int pos) {
+		if (pos >= 0 && pos < comentarios.size()) {
+			comentarios.remove(pos);
+		}
+	}
+	
+	public list<Comentario> getComentarios() {
+		return comentarios;
+	}
+	
+	@Override
+	public String toString() {
+		return codigo + " - " + titulo + " (" + autor + ")";
+	}
+}
