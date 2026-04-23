@@ -1,0 +1,34 @@
+package logica;
+
+import java.time.LocalDateTime;
+
+public class Comentario {
+	private LocalDateTime fechaCreacion;
+	private String emailAutor;
+	private String direccionIP;
+	private String texto;
+	
+	public Comentario(String emailAutor, String direccionIP, String texto) {
+		this.fechaCreacion = LocalDateTime;
+		this.emailAutor = emailAutor;
+		this.direcconIP = direccionIP;
+		this.texto = texto;
+	}
+	
+	public LocalDateTime getFechaCreacion() {
+		return fechaCreacion;
+	}
+	
+	public String getEmailAutor() {
+		return emailAutor;
+	}
+	
+	public String getTexto() {
+		return texto;
+	}
+	
+	@Override
+	public String toString() {
+		return emailAutor + ": " + texto;
+	}
+}
