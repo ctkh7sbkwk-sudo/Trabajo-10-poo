@@ -1,0 +1,52 @@
+package logica;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Blog {
+	private static int controlador  = 1;
+	
+	private int codigo;
+	private String nombre;
+	private String descripcion;
+	private LocalDateTime fechaCreacion;
+	private List<Publicacion> publicaciones;
+	
+	publos Blog(String nombre, String descripcion) {
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.fechaCreacion = LocalDateTime.now();
+		this.publicaciones = new ArrayList<>();
+	}
+	
+	public void crearPublicacion( String titulo, String autor, String texto) {
+		publicacones.add(new Publicacion(titulo, texto, autor));
+	}
+	
+	public List<Publicacon> getPublicaciones() {
+		return publicaciaones;
+	}
+	
+	public Publicacion getPublicacionPorCodigo(int codigo) {
+		for (Publicacion p : publicaciones) {
+			if (p.getCodigo() == codigo) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public void agregarComentario(int codPublicacion, String email, String ip, String texto) {
+		Publicacion p = getPublicacionPorCodigo(codPublicacion);
+		if (p != null) {
+			p.agregarComentarios(email, ip, texto);
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return nombre + " - " + descripcion;
+	}
+}
